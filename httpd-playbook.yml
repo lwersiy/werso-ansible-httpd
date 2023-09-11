@@ -10,6 +10,7 @@
   - name: Start HTTPD Service
     service:
       name: httpd
+      enabled: yes
       state: started
   - name: Check HTTPD Status
     command: service httpd status
