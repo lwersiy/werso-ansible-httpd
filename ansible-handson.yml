@@ -62,6 +62,7 @@ DYNAMIC INVENTORY
 	      dest: /var/www/html/
 	
 Run your ansible playbook command "ansible-playbook -i inventory/ playbook.yml"
+Run this command to bypass prompt for yes "export ANSIBLE_HOST_KEY_CHECKING=False"
 
 
 STATIC INVENTORY
