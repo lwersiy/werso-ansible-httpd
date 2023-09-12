@@ -2,7 +2,9 @@ HANDSON
 
 Checkout master for codes
 
-DYNAMIC INVENTORY
+HANDSON
+
+Dynamic Invenotry
 
 	1) Create your instance (amazon linux 2) and attach a role to the instance
 	2) Install ansible, create a folder, create a key.pem file, playbook.yml, and any other necessary file.
@@ -11,13 +13,17 @@ DYNAMIC INVENTORY
 	5) Download file from link "curl -O link-of-file.com" or "wget link-link-file.com"
 	6) Check to make sure python and python3 are installed
 	7) Check whether python is installed "python" "import boto3, botocore
-	8) Install pip "sudo yum install pip -y" "sudo yum install python-pip"
+	8) Install pip "sudo yum install pip -y" "sudo yum install python-pip -y"
 	9) Install boto3 package "sudo pip2.7 install boto3"
-	10) Edit ansible configuration file in "vi /etc/ansible/ansible.cfg"
-	11) :/[inventory]
-	12) Enable plugins by typing the plugin you want to enable "enable_plugins = aws_ec2, yaml, ini, auto"
-	13) While in the playbook folder, make a directory called inventory
-	14) Cd to inventory and create a file "aws_ec2.yaml" 
+	10)  "sudo pip install boto3 botocore"
+	11)  python -c "import boto3; print(boto3.__version__)"
+	12) python -c "import botocore; print(botocore.__version__)"
+	13) pip install --use-feature=2020-resolver boto3 awscli
+	14) Edit ansible configuration file in "vi /etc/ansible/ansible.cfg"
+	15) :/[inventory]
+	16) Enable plugins by typing the plugin you want to enable "enable_plugins = aws_ec2, yaml, ini, auto"
+	17) While in the playbook folder, make a directory called inventory
+	18) Cd to inventory and create a file "aws_ec2.yaml" 
 	---
 	plugin: aws_ec2
 	
@@ -29,10 +35,9 @@ DYNAMIC INVENTORY
 	    prefix: werso
 	  - key: instance_type
 	    prefix: werso
-	15) Run this command to view list "ansible-inventory --list -i inventory/"
-	16) Copy the target group and include the playbook hosts, also configure the vars as needed.
-	
-        ---
+	19) Run this command to view list "ansible-inventory --list -i inventory/"
+	20) Copy the target group and include the playbook hosts, also configure the vars as needed.
+	---
 	- name: My First Playbook
 	  hosts: tags_Name_Ansible_Target
 	  become: yes
@@ -47,7 +52,6 @@ DYNAMIC INVENTORY
 	  - name: Start HTTPD Service
 	    service:
 	      name: httpd
-				enabled: yes
 	      state: started
 	  - name: Check HTTPD Status
 	    command: service httpd status
