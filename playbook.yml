@@ -1,0 +1,28 @@
+---
+- name: My First Playbook
+  hosts: werso_Name_Ansible_Target
+  become: yes
+  vars:
+    ansible_user: ec2-user
+    ansible_ssh_private_key_file: ansible.pem
+  tasks:
+  - name: Install HTTPD Service
+    yum:
+      name: httpd
+      state: present
+  - name: Start HTTPD Service
+    service:
+      name: httpd
+      enabled: yes
+      state: started
+  - name: Check HTTPD Status
+    command: service httpd status
+    register: service_output
+  - name: Print HTTPD Status
+    debug:
+      var: service_output.stdout
+    when: service_output.rc == 0
+  - name: Copy HTML Page
+    copy:
+      src: index.html
+      dest: /var/www/html/
