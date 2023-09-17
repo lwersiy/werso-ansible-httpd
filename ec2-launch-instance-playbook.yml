@@ -7,8 +7,8 @@
   tasks:
     - name: Provision instance
       ec2:
-        aws_access_key: AKIA6M2BBVHIWZPV3QCD
-        aws_secret_key: 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
+        aws_access_key: 
+        aws_secret_key: 
         key_name: my_ssh_key_name
         instance_type: t2.micro
         image: ami-0d1cd67c26f5fca19
