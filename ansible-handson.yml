@@ -52,7 +52,7 @@ Dynamic Invenotry
 	  - name: Start HTTPD Service
 	    service:
 	      name: httpd
-				enabled: yes
+	      enabled: yes
 	      state: started
 	  - name: Check HTTPD Status
 	    command: service httpd status
